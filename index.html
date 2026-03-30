@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Finzerox Services</title>
-
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -28,7 +27,7 @@ body {
     border-radius:10px;
 }
 
-/* DESCRIPTION */
+/* DESCRIPTION FRAME */
 .description-frame {
     background:#e3f2fd;
     text-align:center;
@@ -37,7 +36,7 @@ body {
     color:#0d47a1;
 }
 
-/* GRID */
+/* PROJECT GRID */
 .container {
     padding:30px;
 }
@@ -48,7 +47,7 @@ body {
     gap:20px;
 }
 
-/* CARD */
+/* PROJECT CARD */
 .project-card {
     background:white;
     padding:20px;
@@ -66,9 +65,17 @@ body {
     padding:5px 12px;
     font-weight:bold;
     border-radius:5px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    z-index:2;
 }
 
-/* TOP */
+.hot-offer span {
+    font-size:16px; /* fire icon bigger */
+}
+
 .top-section {
     display:flex;
     gap:15px;
@@ -91,6 +98,10 @@ body {
     transform: scale(1.05);
 }
 
+.slider-controls {
+    margin-top:5px;
+}
+
 .price-box {
     width:30%;
     background:#e8f5e9;
@@ -101,11 +112,12 @@ body {
 
 .original-price {
     text-decoration: line-through;
-    color: red;
+    color: #b71c1c;
+    font-size:16px;
 }
 
 .discounted-price {
-    color: green;
+    color: #2e7d32;
     font-size:22px;
     font-weight:bold;
 }
@@ -129,13 +141,14 @@ body {
     border-radius:8px;
 }
 
-/* MODAL */
+/* IMAGE MODAL */
 #imageModal {
     display:none;
     position:fixed;
     z-index:999;
-    top:0;
+    padding-top:50px;
     left:0;
+    top:0;
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.9);
@@ -145,7 +158,7 @@ body {
 #imageModal img {
     max-width:90%;
     max-height:90%;
-    margin-top:50px;
+    border-radius:10px;
 }
 
 #imageModal span {
@@ -161,101 +174,220 @@ body {
 .footer {
     background:#0d47a1;
     color:white;
-    padding:15px;
+    padding:15px 20px; /* reduced height */
     text-align:center;
+}
+
+.footer a {
+    color:#ffca28;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+.footer a:hover {
+    text-decoration:underline;
 }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <div class="header">
-    <img src="Finzerox.png">
+    <img src="https://raw.githubusercontent.com/your-username/your-repo/main/logo.png">
     <div>
-        <h2>Finzerox</h2>
-        <p>Your Business Growth Partner</p>
+        <h2 style="margin:0;">Finzerox</h2>
+        <p style="margin:0;">Your Business Growth Partner</p>
     </div>
 </div>
 
-<!-- DESCRIPTION -->
+<!-- DESCRIPTION FRAME -->
 <div class="description-frame">
     <h3>Our Services</h3>
-    <p>We provide dashboards, Excel automation & data analysis.</p>
+    <p>We provide top-notch financial dashboards, Excel automation, data analysis, and business solutions to take your company to the next level. Explore our projects below!</p>
 </div>
 
-<!-- PROJECT -->
+<!-- PROJECTS GRID -->
 <div class="container">
 <div class="grid">
 
 <!-- PROJECT 1 -->
 <div class="project-card">
-<div class="hot-offer">🔥 Hot Offer</div>
-
-<h3>Power BI Dashboard</h3>
-
-<div class="top-section">
-<div class="image-box">
-<img id="img1" src="https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg" onclick="openModal(this.src)">
-<br>
-<button onclick="prevImage('img1', images1)">⬅️</button>
-<button onclick="nextImage('img1', images1)">➡️</button>
+    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <h3>Power BI Dashboard</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img1" src="https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg" onclick="openModal(this.src)">
+            <div class="slider-controls">
+                <button onclick="prevImage('img1', images1)">⬅️</button>
+                <button onclick="nextImage('img1', images1)">➡️</button>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$100</div>
+            <div class="discounted-price">$90</div>
+            <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
+        </div>
+    </div>
+    <p>Interactive dashboard with KPIs and insights.</p>
+    <div id="acc1" class="account-details">
+        Name: Mohamed Sathik<br>
+        Account: 1234567890
+    </div>
 </div>
 
-<div class="price-box">
-<div class="original-price">$100</div>
-<div class="discounted-price">$90</div>
-<button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
+<!-- PROJECT 2 -->
+<div class="project-card">
+    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <h3>Financial Model</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img2" src="https://raw.githubusercontent.com/your-username/repo/main/p2-1.jpg" onclick="openModal(this.src)">
+            <div class="slider-controls">
+                <button onclick="prevImage('img2', images2)">⬅️</button>
+                <button onclick="nextImage('img2', images2)">➡️</button>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$150</div>
+            <div class="discounted-price">$120</div>
+            <button class="btn" onclick="showDetails('acc2')">CLICK HERE</button>
+        </div>
+    </div>
+    <p>Financial forecasting model.</p>
+    <div id="acc2" class="account-details">Account: 1234567890</div>
+</div>
+
+<!-- PROJECT 3 -->
+<div class="project-card">
+    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <h3>Excel Automation</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img3" src="https://raw.githubusercontent.com/your-username/repo/main/p3-1.jpg" onclick="openModal(this.src)">
+            <div class="slider-controls">
+                <button onclick="prevImage('img3', images3)">⬅️</button>
+                <button onclick="nextImage('img3', images3)">➡️</button>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$100</div>
+            <div class="discounted-price">$80</div>
+            <button class="btn" onclick="showDetails('acc3')">CLICK HERE</button>
+        </div>
+    </div>
+    <p>Excel Macros & VBA automation.</p>
+    <div id="acc3" class="account-details">Account: 1234567890</div>
+</div>
+
+<!-- PROJECT 4 -->
+<div class="project-card">
+    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <h3>Business Dashboard</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img4" src="https://raw.githubusercontent.com/your-username/repo/main/p4-1.jpg" onclick="openModal(this.src)">
+            <div class="slider-controls">
+                <button onclick="prevImage('img4', images4)">⬅️</button>
+                <button onclick="nextImage('img4', images4)">➡️</button>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$130</div>
+            <div class="discounted-price">$110</div>
+            <button class="btn" onclick="showDetails('acc4')">CLICK HERE</button>
+        </div>
+    </div>
+    <p>Executive dashboards for decision making.</p>
+    <div id="acc4" class="account-details">Account: 1234567890</div>
+</div>
+
+<!-- PROJECT 5 -->
+<div class="project-card">
+    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <h3>Data Analysis</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img5" src="https://raw.githubusercontent.com/your-username/repo/main/p5-1.jpg" onclick="openModal(this.src)">
+            <div class="slider-controls">
+                <button onclick="prevImage('img5', images5)">⬅️</button>
+                <button onclick="nextImage('img5', images5)">➡️</button>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$85</div>
+            <div class="discounted-price">$70</div>
+            <button class="btn" onclick="showDetails('acc5')">CLICK HERE</button>
+        </div>
+    </div>
+    <p>Advanced analytics and insights.</p>
+    <div id="acc5" class="account-details">Account: 1234567890</div>
+</div>
+
 </div>
 </div>
 
-<p>Interactive dashboard with KPIs.</p>
-<div id="acc1" class="account-details">
-Name: Mohamed Sathik<br>
-Account: 1234567890
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- MODAL -->
+<!-- IMAGE MODAL -->
 <div id="imageModal">
-<span onclick="closeModal()">×</span>
-<img id="modalImg">
+    <span onclick="closeModal()">&times;</span>
+    <img id="modalImg">
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>&copy; 2026 Finzerox. All rights reserved.</p>
+    <p>Contact: info@finzerox.com | Phone: +123 456 7890</p>
+    <p>
+        <a href="#">Facebook</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">Twitter</a>
+    </p>
 </div>
 
 <script>
+// IMAGE ARRAYS
 const images1 = [
 "https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg",
 "https://raw.githubusercontent.com/your-username/repo/main/p1-2.jpg"
 ];
+const images2 = ["https://raw.githubusercontent.com/your-username/repo/main/p2-1.jpg"];
+const images3 = ["https://raw.githubusercontent.com/your-username/repo/main/p3-1.jpg"];
+const images4 = [
+"https://raw.githubusercontent.com/your-username/repo/main/p4-1.jpg",
+"https://raw.githubusercontent.com/your-username/repo/main/p4-2.jpg"
+];
+const images5 = ["https://raw.githubusercontent.com/your-username/repo/main/p5-1.jpg"];
 
+// INDEX TRACKER
 let indexes = {};
 
+// NEXT IMAGE
 function nextImage(id, images) {
-if (!indexes[id]) indexes[id] = 0;
-indexes[id] = (indexes[id] + 1) % images.length;
-document.getElementById(id).src = images[indexes[id]];
+    if (!indexes[id]) indexes[id] = 0;
+    indexes[id] = (indexes[id] + 1) % images.length;
+    document.getElementById(id).src = images[indexes[id]];
 }
 
+// PREVIOUS IMAGE
 function prevImage(id, images) {
-if (!indexes[id]) indexes[id] = 0;
-indexes[id] = (indexes[id] - 1 + images.length) % images.length;
-document.getElementById(id).src = images[indexes[id]];
+    if (!indexes[id]) indexes[id] = 0;
+    indexes[id] = (indexes[id] - 1 + images.length) % images.length;
+    document.getElementById(id).src = images[indexes[id]];
 }
 
+// SHOW ACCOUNT DETAILS
 function showDetails(id) {
-document.getElementById(id).style.display = "block";
+    document.getElementById(id).style.display = "block";
 }
 
+// OPEN MODAL
 function openModal(src) {
-document.getElementById("imageModal").style.display = "block";
-document.getElementById("modalImg").src = src;
+    document.getElementById("imageModal").style.display = "block";
+    document.getElementById("modalImg").src = src;
 }
 
+// CLOSE MODAL
 function closeModal() {
-document.getElementById("imageModal").style.display = "none";
+    document.getElementById("imageModal").style.display = "none";
 }
 </script>
 
