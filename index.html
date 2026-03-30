@@ -38,7 +38,9 @@ body {
 }
 
 /* GRID */
-.container { padding:30px; }
+.container {
+    padding:30px;
+}
 
 .grid {
     display:grid;
@@ -62,8 +64,8 @@ body {
     background:red;
     color:white;
     padding:5px 12px;
-    border-radius:5px;
     font-weight:bold;
+    border-radius:5px;
 }
 
 /* TOP */
@@ -73,15 +75,21 @@ body {
     align-items:center;
 }
 
-.image-box { width:70%; text-align:center; }
+.image-box {
+    width:70%;
+    text-align:center;
+}
 
 .image-box img {
     width:100%;
     border-radius:10px;
     cursor:pointer;
+    transition: transform 0.3s;
 }
 
-.slider-controls { margin-top:5px; }
+.image-box img:hover {
+    transform: scale(1.05);
+}
 
 .price-box {
     width:30%;
@@ -93,12 +101,12 @@ body {
 
 .original-price {
     text-decoration: line-through;
-    color:red;
+    color: red;
 }
 
 .discounted-price {
-    color:green;
-    font-size:20px;
+    color: green;
+    font-size:22px;
     font-weight:bold;
 }
 
@@ -115,16 +123,17 @@ body {
 
 .account-details {
     display:none;
-    margin-top:10px;
-    background:#eee;
+    margin-top:15px;
+    background:#eeeeee;
     padding:10px;
-    border-radius:5px;
+    border-radius:8px;
 }
 
 /* MODAL */
 #imageModal {
     display:none;
     position:fixed;
+    z-index:999;
     top:0;
     left:0;
     width:100%;
@@ -135,7 +144,8 @@ body {
 
 #imageModal img {
     max-width:90%;
-    margin-top:5%;
+    max-height:90%;
+    margin-top:50px;
 }
 
 #imageModal span {
@@ -145,6 +155,14 @@ body {
     color:white;
     font-size:30px;
     cursor:pointer;
+}
+
+/* FOOTER */
+.footer {
+    background:#0d47a1;
+    color:white;
+    padding:15px;
+    text-align:center;
 }
 </style>
 </head>
@@ -163,37 +181,39 @@ body {
 <!-- DESCRIPTION -->
 <div class="description-frame">
     <h3>Our Services</h3>
-    <p>We provide dashboards, automation & analytics solutions.</p>
+    <p>We provide dashboards, Excel automation & data analysis.</p>
 </div>
 
 <!-- PROJECT -->
 <div class="container">
 <div class="grid">
 
+<!-- PROJECT 1 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer</div>
-    <h3>Power BI Dashboard</h3>
+<div class="hot-offer">🔥 Hot Offer</div>
 
-    <div class="top-section">
-        <div class="image-box">
-            <img id="img1" src="PVM_page-0001.jpg" onclick="openModal(this.src)">
-            <div class="slider-controls">
-                <button onclick="prevImage('img1', images1)">⬅️</button>
-                <button onclick="nextImage('img1', images1)">➡️</button>
-            </div>
-        </div>
+<h3>Power BI Dashboard</h3>
 
-        <div class="price-box">
-            <div class="original-price">$100</div>
-            <div class="discounted-price">$90</div>
-            <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
-        </div>
-    </div>
+<div class="top-section">
+<div class="image-box">
+<img id="img1" src="https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg" onclick="openModal(this.src)">
+<br>
+<button onclick="prevImage('img1', images1)">⬅️</button>
+<button onclick="nextImage('img1', images1)">➡️</button>
+</div>
 
-    <p>Interactive dashboard with KPIs.</p>
-    <div id="acc1" class="account-details">
-        Name: Mohamed Sathik<br>Account: 1234567890
-    </div>
+<div class="price-box">
+<div class="original-price">$100</div>
+<div class="discounted-price">$90</div>
+<button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
+</div>
+</div>
+
+<p>Interactive dashboard with KPIs.</p>
+<div id="acc1" class="account-details">
+Name: Mohamed Sathik<br>
+Account: 1234567890
+</div>
 </div>
 
 </div>
@@ -201,46 +221,41 @@ body {
 
 <!-- MODAL -->
 <div id="imageModal">
-    <span onclick="closeModal()">&times;</span>
-    <img id="modalImg">
+<span onclick="closeModal()">×</span>
+<img id="modalImg">
 </div>
 
 <script>
-// IMAGES
 const images1 = [
-"PVM_page-0001.jpg",
-"PVM_page-0002.jpg",
-"PVM_page-0003.jpg"
+"https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg",
+"https://raw.githubusercontent.com/your-username/repo/main/p1-2.jpg"
 ];
 
-// INDEX
-let indexes = { img1: 0 };
+let indexes = {};
 
-// NEXT
 function nextImage(id, images) {
-    indexes[id] = (indexes[id] + 1) % images.length;
-    document.getElementById(id).src = images[indexes[id]];
+if (!indexes[id]) indexes[id] = 0;
+indexes[id] = (indexes[id] + 1) % images.length;
+document.getElementById(id).src = images[indexes[id]];
 }
 
-// PREV
 function prevImage(id, images) {
-    indexes[id] = (indexes[id] - 1 + images.length) % images.length;
-    document.getElementById(id).src = images[indexes[id]];
+if (!indexes[id]) indexes[id] = 0;
+indexes[id] = (indexes[id] - 1 + images.length) % images.length;
+document.getElementById(id).src = images[indexes[id]];
 }
 
-// SHOW DETAILS
 function showDetails(id) {
-    document.getElementById(id).style.display = "block";
+document.getElementById(id).style.display = "block";
 }
 
-// MODAL
 function openModal(src) {
-    document.getElementById("imageModal").style.display = "block";
-    document.getElementById("modalImg").src = src;
+document.getElementById("imageModal").style.display = "block";
+document.getElementById("modalImg").src = src;
 }
 
 function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
+document.getElementById("imageModal").style.display = "none";
 }
 </script>
 
