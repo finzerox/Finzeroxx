@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- IMPORTANT FOR MOBILE -->
+<!-- MOBILE VIEW FIX -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Finzerox Services</title>
@@ -74,11 +74,6 @@ body {
     display:flex;
     align-items:center;
     gap:5px;
-    z-index:2;
-}
-
-.hot-offer span {
-    font-size:16px;
 }
 
 .top-section {
@@ -89,18 +84,12 @@ body {
 
 .image-box {
     width:70%;
-    text-align:center;
 }
 
 .image-box img {
     width:100%;
     border-radius:10px;
     cursor:pointer;
-    transition: transform 0.3s;
-}
-
-.image-box img:hover {
-    transform: scale(1.05);
 }
 
 .slider-controls {
@@ -118,7 +107,6 @@ body {
 .original-price {
     text-decoration: line-through;
     color: #b71c1c;
-    font-size:16px;
 }
 
 .discounted-price {
@@ -146,14 +134,13 @@ body {
     border-radius:8px;
 }
 
-/* IMAGE MODAL */
+/* MODAL */
 #imageModal {
     display:none;
     position:fixed;
     z-index:999;
-    padding-top:50px;
-    left:0;
     top:0;
+    left:0;
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.9);
@@ -163,13 +150,12 @@ body {
 #imageModal img {
     max-width:90%;
     max-height:90%;
-    border-radius:10px;
 }
 
 #imageModal span {
     position:absolute;
     top:20px;
-    right:40px;
+    right:30px;
     color:white;
     font-size:30px;
     cursor:pointer;
@@ -179,35 +165,20 @@ body {
 .footer {
     background:#0d47a1;
     color:white;
-    padding:15px 20px;
+    padding:15px;
     text-align:center;
 }
 
 .footer a {
     color:#ffca28;
-    text-decoration:none;
     margin:0 10px;
 }
 
-.footer a:hover {
-    text-decoration:underline;
-}
-
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
     .header {
         flex-direction: column;
-        text-align: center;
-    }
-
-    .description-frame {
-        padding:20px;
-        font-size:16px;
-    }
-
-    .container {
-        padding:15px;
     }
 
     .grid {
@@ -218,42 +189,13 @@ body {
         flex-direction: column;
     }
 
-    .image-box,
-    .price-box {
+    .image-box, .price-box {
         width:100%;
     }
 
     .price-box {
         margin-top:10px;
     }
-
-    .project-card {
-        padding:15px;
-    }
-
-    .hot-offer {
-        font-size:12px;
-        padding:4px 8px;
-    }
-
-    .discounted-price {
-        font-size:20px;
-    }
-
-    .original-price {
-        font-size:14px;
-    }
-
-    .btn {
-        padding:8px;
-        font-size:14px;
-    }
-
-    #imageModal img {
-        max-width:95%;
-        max-height:80%;
-    }
-
 }
 </style>
 </head>
@@ -264,15 +206,15 @@ body {
 <div class="header">
     <img src="Finzerox.png">
     <div>
-        <h2 style="margin:0;">Finzerox</h2>
-        <p style="margin:0;">Your Business Growth Partner</p>
+        <h2>Finzerox</h2>
+        <p>Your Business Growth Partner</p>
     </div>
 </div>
 
 <!-- DESCRIPTION -->
 <div class="description-frame">
     <h3>Our Services</h3>
-    <p>We provide top-notch financial dashboards, Excel automation, data analysis, and business solutions to take your company to the next level.</p>
+    <p>We provide top-notch financial dashboards, Excel automation, data analysis, and business solutions.</p>
 </div>
 
 <!-- PROJECTS -->
@@ -281,7 +223,7 @@ body {
 
 <!-- PROJECT 1 -->
 <div class="project-card">
-    <div class="hot-offer"><span>🔥</span> Hot Offer!</div>
+    <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Power BI Dashboard</h3>
     <div class="top-section">
         <div class="image-box">
@@ -297,10 +239,66 @@ body {
             <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
         </div>
     </div>
-    <p>Interactive dashboard with KPIs and insights.</p>
-    <div id="acc1" class="account-details">
-        Name: Mohamed Sathik<br>
-        Account: 1234567890
+    <div id="acc1" class="account-details">Account: 1234567890</div>
+</div>
+
+<!-- PROJECT 2 -->
+<div class="project-card">
+    <div class="hot-offer">🔥 Hot Offer!</div>
+    <h3>Financial Model</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img2" src="p2.jpg">
+        </div>
+        <div class="price-box">
+            <div class="original-price">$150</div>
+            <div class="discounted-price">$120</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECT 3 -->
+<div class="project-card">
+    <div class="hot-offer">🔥 Hot Offer!</div>
+    <h3>Excel Automation</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img3" src="p3.jpg">
+        </div>
+        <div class="price-box">
+            <div class="original-price">$100</div>
+            <div class="discounted-price">$80</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECT 4 -->
+<div class="project-card">
+    <div class="hot-offer">🔥 Hot Offer!</div>
+    <h3>Business Dashboard</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img4" src="p4.jpg">
+        </div>
+        <div class="price-box">
+            <div class="original-price">$130</div>
+            <div class="discounted-price">$110</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECT 5 -->
+<div class="project-card">
+    <div class="hot-offer">🔥 Hot Offer!</div>
+    <h3>Data Analysis</h3>
+    <div class="top-section">
+        <div class="image-box">
+            <img id="img5" src="p5.jpg">
+        </div>
+        <div class="price-box">
+            <div class="original-price">$85</div>
+            <div class="discounted-price">$70</div>
+        </div>
     </div>
 </div>
 
@@ -313,16 +311,19 @@ body {
     <img id="modalImg">
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (UNCHANGED) -->
 <div class="footer">
-    <p>&copy; 2026 Finzerox</p>
+    <p>&copy; 2026 Finzerox. All rights reserved.</p>
+    <p>Contact: info@finzerox.com | Phone: +123 456 7890</p>
+    <p>
+        <a href="#">Facebook</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">Twitter</a>
+    </p>
 </div>
 
 <script>
-const images1 = [
-"https://raw.githubusercontent.com/your-username/repo/main/p1-1.jpg",
-"https://raw.githubusercontent.com/your-username/repo/main/p1-2.jpg"
-];
+const images1 = ["PVM_page-0001.jpg"];
 
 let indexes = {};
 
