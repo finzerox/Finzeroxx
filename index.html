@@ -189,7 +189,7 @@ body {
 .footer {
     background:#0d47a1;
     color:white;
-    padding:12px 15px;   /* Reduced height */
+    padding:12px 15px;  
     text-align:center;
     box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
     border-top: 3px solid #ffca28;
@@ -259,21 +259,20 @@ body {
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>PVM Report</h3>
     <div class="image-box">
-        <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
+        <img src="PVM_page-0001.jpg" ondblclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc1">
         <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
         <ul>
-            <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
-            <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
-            <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
-            <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
+            <li><strong>Understand Overall Revenue Performance</strong></li>
+            <li><strong>Compare Current Period vs. Previous Period</strong></li>
+            <li><strong>Identify Variance Drivers</strong></li>
+            <li><strong>Analyze Product-wise Performance</strong></li>
         </ul>
         <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
-        <p><strong>What you will receive:</strong></p>
         <ul>
-            <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
-            <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
+            <li>Excel Dataset – Ready-to-use data</li>
+            <li>PBIX File – Fully built Power BI report</li>
         </ul>
     </div>
     <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
@@ -292,27 +291,28 @@ body {
 </div>
 
 <!-- PROJECT 2 -->
-<!-- PROJECT 2 -->
 <div class="project-card">
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Financial Model</h3>
-
     <div class="image-box">
-        <img id="img2" src="Product_Mix_page-0004.jpg" onclick="nextImage('img2', images2)">
+        <img id="img2" src="Product_Mix_page-0004.jpg"
+             onclick="nextImage('img2', images2)"
+             ondblclick="openModal(this.src)">
     </div>
-
+    <div style="display:flex; justify-content:space-between; align-items:center; font-size:14px; margin-top:5px;">
+        <span style="cursor:pointer;" onclick="prevImage('img2', images2)">⬅ Scroll</span>
+        <span id="count2">1 / 5</span>
+        <span style="cursor:pointer;" onclick="nextImage('img2', images2)">Scroll ➡</span>
+    </div>
     <div class="detailed-description" id="desc2">
         <p>Detailed financial models for forecasting, budgeting, and investment analysis. Designed for decision-makers to quickly interpret financial data.</p>
     </div>
-
     <button class="btn" onclick="toggleDescription('desc2', this)">Read More</button>
-
     <div class="price-box">
         <div class="original-price">$150</div>
         <div class="discounted-price">$120</div>
         <button class="btn" onclick="showDetails('acc2')">CLICK HERE</button>
     </div>
-
     <div id="acc2" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
         <p>Contact Number: 8006574921</p>
@@ -327,7 +327,7 @@ body {
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Excel Automation</h3>
     <div class="image-box">
-        <img src="p3.jpg" onclick="openModal(this.src)">
+        <img src="p3.jpg" ondblclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc3">
         <p>Automate repetitive Excel tasks and save hours of manual work. Improves efficiency and reduces errors in financial reporting.</p>
@@ -352,7 +352,7 @@ body {
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Business Dashboard</h3>
     <div class="image-box">
-        <img src="p4.jpg" onclick="openModal(this.src)">
+        <img src="p4.jpg" ondblclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc4">
         <p>Visualize business metrics and improve decision making with clear dashboards and KPIs. Ideal for managers and executives.</p>
@@ -377,7 +377,7 @@ body {
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Data Analysis</h3>
     <div class="image-box">
-        <img src="p5.jpg" onclick="openModal(this.src)">
+        <img src="p5.jpg" ondblclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc5">
         <p>Analyze data effectively to discover insights and trends. Designed to improve business intelligence and reporting accuracy.</p>
@@ -436,20 +436,32 @@ function showDetails(id) {
 
 // Images for Project 2
 const images2 = [
-    "Product_Mix_page-0004.jpg", // FIRST IMAGE
+    "Product_Mix_page-0004.jpg",
     "Product_Mix_page-0001.jpg",
     "Product_Mix_page-0002.jpg",
     "Product_Mix_page-0003.jpg",
     "Product_Mix_page-0005.jpg"
 ];
 
-// Image switch logic
-let indexes = {};
+let indexes = { img2: 0 };
 
+// Next Image
 function nextImage(id, images) {
-    if (!indexes[id]) indexes[id] = 0;
     indexes[id] = (indexes[id] + 1) % images.length;
     document.getElementById(id).src = images[indexes[id]];
+    updateCounter();
+}
+
+// Previous Image
+function prevImage(id, images) {
+    indexes[id] = (indexes[id] - 1 + images.length) % images.length;
+    document.getElementById(id).src = images[indexes[id]];
+    updateCounter();
+}
+
+// Update counter text
+function updateCounter() {
+    document.getElementById("count2").innerText = (indexes["img2"] + 1) + " / " + images2.length;
 }
 </script>
 
