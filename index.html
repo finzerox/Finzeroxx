@@ -292,21 +292,27 @@ body {
 </div>
 
 <!-- PROJECT 2 -->
+<!-- PROJECT 2 -->
 <div class="project-card">
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Financial Model</h3>
+
     <div class="image-box">
-        <img src="p2.jpg" onclick="openModal(this.src)">
+        <img id="img2" src="Product_Mix_page-0004.jpg" onclick="nextImage('img2', images2)">
     </div>
+
     <div class="detailed-description" id="desc2">
         <p>Detailed financial models for forecasting, budgeting, and investment analysis. Designed for decision-makers to quickly interpret financial data.</p>
     </div>
+
     <button class="btn" onclick="toggleDescription('desc2', this)">Read More</button>
+
     <div class="price-box">
         <div class="original-price">$150</div>
         <div class="discounted-price">$120</div>
         <button class="btn" onclick="showDetails('acc2')">CLICK HERE</button>
     </div>
+
     <div id="acc2" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
         <p>Contact Number: 8006574921</p>
@@ -426,6 +432,24 @@ function toggleDescription(id, btn) {
 }
 function showDetails(id) {
     document.getElementById(id).style.display = "block";
+}
+
+// Images for Project 2
+const images2 = [
+    "Product_Mix_page-0004.jpg", // FIRST IMAGE
+    "Product_Mix_page-0001.jpg",
+    "Product_Mix_page-0002.jpg",
+    "Product_Mix_page-0003.jpg",
+    "Product_Mix_page-0005.jpg"
+];
+
+// Image switch logic
+let indexes = {};
+
+function nextImage(id, images) {
+    if (!indexes[id]) indexes[id] = 0;
+    indexes[id] = (indexes[id] + 1) % images.length;
+    document.getElementById(id).src = images[indexes[id]];
 }
 </script>
 
