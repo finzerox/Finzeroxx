@@ -282,46 +282,36 @@ body {
 
 <!-- PROJECT 1 -->
 <div class="project-card">
-    <div class="hot-offer">
-        🔥 Hot Offer!
-        <span class="sales-count-badge">Sales: 25</span>
-    </div>
+    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="sales-count">Sales: 120</div>
     <h3>PVM Report</h3>
     <div class="image-box">
-        <img id="img1" src="PVM_page-0001.jpg" ondblclick="openModal('img1')">
+        <img id="img1" src="PVM_page-0001.jpg"
+             onclick="nextImage('img1', images1)"
+             ondblclick="openModal(this.src)">
     </div>
-    <div class="scroll-buttons">
-        <span onclick="prevImage('img1', images1)">⬅ Scroll</span>
+    <div style="display:flex; justify-content:space-between; align-items:center; font-size:14px; margin-top:5px;">
+        <span style="cursor:pointer;" onclick="prevImage('img1', images1)">⬅ Scroll</span>
         <span id="count1">1 / 3</span>
-        <span onclick="nextImage('img1', images1)">Scroll ➡</span>
+        <span style="cursor:pointer;" onclick="nextImage('img1', images1)">Scroll ➡</span>
+    </div>
     <div class="detailed-description" id="desc1">
-    <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
-    <ul>
-        <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
-        <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
-        <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
-        <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
-    </ul>
-    <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
-    <h4>What you will receive:</h4>
-    <ul>
-        <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
-        <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
-    </ul>
-</div>
-    <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
-    <div class="price-box">
-        <div class="original-price">$50</div>
-        <div class="discounted-price">$10</div>
-        <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
-    </div>
-    <div id="acc1" class="account-details">
-        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact: 8006574921</p>
-        <p>Bank: Commercial Bank</p>
-        <p>Note: Send receipt to +971 56 723 1138</p>
-    </div>
-</div>
+        <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
+        <ul>
+            <li><strong>Understand Overall Revenue Performance</strong></li>
+            <li><strong>Compare Current Period vs. Previous Period</strong></li>
+            <li><strong>Identify Variance Drivers</strong></li>
+            <li><strong>Analyze Product-wise Performance</strong></li>
+        </ul>
+        <p>We provide top-notch financial dashboards, Excel automation, data analysis, and business solutions.</p>
+        <p>If you need project support, we offer our services starting from <strong>$100 USD</strong>. Our projects are well-structured, efficient, and come with lifetime support.</p>
+        <p>For specific projects, simply pay the indicated amount, send your receipt along with your contact number, and you will receive your project within minutes. For any further support or guidance, you can reach out to the same contact number, and our team will assist you promptly.</p>
+        <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
+        <ul>
+            <li>Excel Dataset – Ready-to-use data</li>
+            <li>PBIX File – Fully built Power BI report</li>
+        </ul>
+    </div
 
 <!-- PROJECT 2 -->
 <div class="project-card">
