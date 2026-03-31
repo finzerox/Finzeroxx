@@ -76,21 +76,33 @@ body {
     gap: 15px;
 }
 
+/* HOT OFFER + SALES COUNT */
 .hot-offer {
-    position:absolute;
-    top:15px;
-    right:15px;
-    background:red;
-    color:white;
-    padding:5px 12px;
-    font-weight:bold;
-    border-radius:5px;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    gap:5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: red;
+    color: white;
+    padding: 5px 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
 }
 
+.hot-offer .sales-count-badge {
+    background: #ffca28;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+/* IMAGE BOX */
 .image-box {
     width: 100%;
 }
@@ -174,15 +186,30 @@ body {
 #imageModal img {
     max-width:90%;
     max-height:90%;
+    border-radius:10px;
 }
 
-#imageModal span {
+#imageModal span.close {
     position:absolute;
     top:20px;
     right:30px;
     color:white;
     font-size:30px;
     cursor:pointer;
+}
+
+/* SCROLL BUTTONS UNDER IMAGE */
+.scroll-buttons {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+    margin-top:5px;
+}
+
+.scroll-buttons span {
+    cursor:pointer;
+    user-select: none;
 }
 
 /* FOOTER */
@@ -214,7 +241,6 @@ body {
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
     .header {
         flex-direction: column;
         align-items:flex-start;
@@ -247,7 +273,6 @@ body {
     <h3>Our Services</h3>
     <p>We provide top-notch financial dashboards, Excel automation, data analysis, and business solutions.</p>
     <p>If you need <strong>project support</strong>, we offer our services starting from <strong>$100 USD</strong>. Our projects are <strong>well-structured, efficient</strong>, and come with <strong>lifetime support</strong>.</p>
-    <p>For specific projects, simply <strong>pay the indicated amount</strong>, send your <strong>receipt along with your contact number</strong>, and you will receive your project within <strong>minutes</strong>. For any further support or guidance, you can reach out to the <strong>same contact number</strong>, and our team will assist you promptly.</p>
 </div>
 
 <!-- PROJECTS -->
@@ -256,24 +281,21 @@ body {
 
 <!-- PROJECT 1 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="hot-offer">
+        🔥 Hot Offer!
+        <span class="sales-count-badge">Sales: 25</span>
+    </div>
     <h3>PVM Report</h3>
     <div class="image-box">
-        <img src="PVM_page-0001.jpg" ondblclick="openModal(this.src)">
+        <img id="img1" src="PVM_page-0001.jpg" ondblclick="openModal('img1')">
+    </div>
+    <div class="scroll-buttons">
+        <span onclick="prevImage('img1', images1)">⬅ Scroll</span>
+        <span id="count1">1 / 3</span>
+        <span onclick="nextImage('img1', images1)">Scroll ➡</span>
     </div>
     <div class="detailed-description" id="desc1">
-        <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
-        <ul>
-            <li><strong>Understand Overall Revenue Performance</strong></li>
-            <li><strong>Compare Current Period vs. Previous Period</strong></li>
-            <li><strong>Identify Variance Drivers</strong></li>
-            <li><strong>Analyze Product-wise Performance</strong></li>
-        </ul>
-        <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
-        <ul>
-            <li>Excel Dataset – Ready-to-use data</li>
-            <li>PBIX File – Fully built Power BI report</li>
-        </ul>
+        <p>Comprehensive PVM analysis with actionable insights.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
     <div class="price-box">
@@ -283,29 +305,29 @@ body {
     </div>
     <div id="acc1" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact Number: 8006574921</p>
-        <p>Branch: Chenkalady Branch</p>
+        <p>Contact: 8006574921</p>
         <p>Bank: Commercial Bank</p>
-        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
+        <p>Note: Send receipt to +971 56 723 1138</p>
     </div>
 </div>
 
 <!-- PROJECT 2 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="hot-offer">
+        🔥 Hot Offer!
+        <span class="sales-count-badge">Sales: 40</span>
+    </div>
     <h3>Financial Model</h3>
     <div class="image-box">
-        <img id="img2" src="Product_Mix_page-0004.jpg"
-             onclick="nextImage('img2', images2)"
-             ondblclick="openModal(this.src)">
+        <img id="img2" src="Product_Mix_page-0004.jpg" ondblclick="openModal('img2')">
     </div>
-    <div style="display:flex; justify-content:space-between; align-items:center; font-size:14px; margin-top:5px;">
-        <span style="cursor:pointer;" onclick="prevImage('img2', images2)">⬅ Scroll</span>
+    <div class="scroll-buttons">
+        <span onclick="prevImage('img2', images2)">⬅ Scroll</span>
         <span id="count2">1 / 5</span>
-        <span style="cursor:pointer;" onclick="nextImage('img2', images2)">Scroll ➡</span>
+        <span onclick="nextImage('img2', images2)">Scroll ➡</span>
     </div>
     <div class="detailed-description" id="desc2">
-        <p>Detailed financial models for forecasting, budgeting, and investment analysis. Designed for decision-makers to quickly interpret financial data.</p>
+        <p>Detailed financial models for forecasting, budgeting, and investment analysis.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc2', this)">Read More</button>
     <div class="price-box">
@@ -315,22 +337,29 @@ body {
     </div>
     <div id="acc2" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact Number: 8006574921</p>
-        <p>Branch: Chenkalady Branch</p>
+        <p>Contact: 8006574921</p>
         <p>Bank: Commercial Bank</p>
-        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
+        <p>Note: Send receipt to +971 56 723 1138</p>
     </div>
 </div>
 
 <!-- PROJECT 3 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="hot-offer">
+        🔥 Hot Offer!
+        <span class="sales-count-badge">Sales: 30</span>
+    </div>
     <h3>Excel Automation</h3>
     <div class="image-box">
-        <img src="p3.jpg" ondblclick="openModal(this.src)">
+        <img id="img3" src="p3_1.jpg" ondblclick="openModal('img3')">
+    </div>
+    <div class="scroll-buttons">
+        <span onclick="prevImage('img3', images3)">⬅ Scroll</span>
+        <span id="count3">1 / 3</span>
+        <span onclick="nextImage('img3', images3)">Scroll ➡</span>
     </div>
     <div class="detailed-description" id="desc3">
-        <p>Automate repetitive Excel tasks and save hours of manual work. Improves efficiency and reduces errors in financial reporting.</p>
+        <p>Automate repetitive Excel tasks and save hours of manual work.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc3', this)">Read More</button>
     <div class="price-box">
@@ -340,22 +369,29 @@ body {
     </div>
     <div id="acc3" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact Number: 8006574921</p>
-        <p>Branch: Chenkalady Branch</p>
+        <p>Contact: 8006574921</p>
         <p>Bank: Commercial Bank</p>
-        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
+        <p>Note: Send receipt to +971 56 723 1138</p>
     </div>
 </div>
 
 <!-- PROJECT 4 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="hot-offer">
+        🔥 Hot Offer!
+        <span class="sales-count-badge">Sales: 20</span>
+    </div>
     <h3>Business Dashboard</h3>
     <div class="image-box">
-        <img src="p4.jpg" ondblclick="openModal(this.src)">
+        <img id="img4" src="p4_1.jpg" ondblclick="openModal('img4')">
+    </div>
+    <div class="scroll-buttons">
+        <span onclick="prevImage('img4', images4)">⬅ Scroll</span>
+        <span id="count4">1 / 2</span>
+        <span onclick="nextImage('img4', images4)">Scroll ➡</span>
     </div>
     <div class="detailed-description" id="desc4">
-        <p>Visualize business metrics and improve decision making with clear dashboards and KPIs. Ideal for managers and executives.</p>
+        <p>Visualize business metrics and improve decision making with clear dashboards and KPIs.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc4', this)">Read More</button>
     <div class="price-box">
@@ -365,22 +401,29 @@ body {
     </div>
     <div id="acc4" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact Number: 8006574921</p>
-        <p>Branch: Chenkalady Branch</p>
+        <p>Contact: 8006574921</p>
         <p>Bank: Commercial Bank</p>
-        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
+        <p>Note: Send receipt to +971 56 723 1138</p>
     </div>
 </div>
 
 <!-- PROJECT 5 -->
 <div class="project-card">
-    <div class="hot-offer">🔥 Hot Offer!</div>
+    <div class="hot-offer">
+        🔥 Hot Offer!
+        <span class="sales-count-badge">Sales: 35</span>
+    </div>
     <h3>Data Analysis</h3>
     <div class="image-box">
-        <img src="p5.jpg" ondblclick="openModal(this.src)">
+        <img id="img5" src="p5_1.jpg" ondblclick="openModal('img5')">
+    </div>
+    <div class="scroll-buttons">
+        <span onclick="prevImage('img5', images5)">⬅ Scroll</span>
+        <span id="count5">1 / 3</span>
+        <span onclick="nextImage('img5', images5)">Scroll ➡</span>
     </div>
     <div class="detailed-description" id="desc5">
-        <p>Analyze data effectively to discover insights and trends. Designed to improve business intelligence and reporting accuracy.</p>
+        <p>Analyze data effectively to discover insights and trends.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc5', this)">Read More</button>
     <div class="price-box">
@@ -390,10 +433,9 @@ body {
     </div>
     <div id="acc5" class="account-details">
         <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
-        <p>Contact Number: 8006574921</p>
-        <p>Branch: Chenkalady Branch</p>
+        <p>Contact: 8006574921</p>
         <p>Bank: Commercial Bank</p>
-        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
+        <p>Note: Send receipt to +971 56 723 1138</p>
     </div>
 </div>
 
@@ -402,66 +444,82 @@ body {
 
 <!-- MODAL -->
 <div id="imageModal">
-    <span onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal()">&times;</span>
     <img id="modalImg">
+    <div class="scroll-buttons" style="justify-content:center; margin-top:10px;">
+        <span onclick="prevModalImage()">⬅ Prev</span>
+        <span id="modalCount">1 / 1</span>
+        <span onclick="nextModalImage()">Next ➡</span>
+    </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
     <p>&copy; 2026 Finzerox. All rights reserved.</p>
-    <p>Contact: info@finzerox.com | Phone: +123 456 7890</p>
-    <p>
-        <a href="#">Facebook</a> |
-        <a href="#">LinkedIn</a> |
-        <a href="#">Twitter</a>
-    </p>
 </div>
 
 <script>
-function openModal(src) {
-    document.getElementById("imageModal").style.display = "block";
-    document.getElementById("modalImg").src = src;
+// Image arrays for all projects
+const images1 = ["PVM_page-0001.jpg","PVM_page-0002.jpg","PVM_page-0003.jpg"];
+const images2 = ["Product_Mix_page-0004.jpg","Product_Mix_page-0001.jpg","Product_Mix_page-0002.jpg","Product_Mix_page-0003.jpg","Product_Mix_page-0005.jpg"];
+const images3 = ["p3_1.jpg","p3_2.jpg","p3_3.jpg"];
+const images4 = ["p4_1.jpg","p4_2.jpg"];
+const images5 = ["p5_1.jpg","p5_2.jpg","p5_3.jpg"];
+
+let indexes = { img1:0, img2:0, img3:0, img4:0, img5:0 };
+
+// Next / Prev
+function nextImage(id, images){
+    indexes[id]=(indexes[id]+1)%images.length;
+    document.getElementById(id).src=images[indexes[id]];
+    document.getElementById("count"+id.slice(-1)).innerText=(indexes[id]+1)+" / "+images.length;
 }
-function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
+function prevImage(id, images){
+    indexes[id]=(indexes[id]-1+images.length)%images.length;
+    document.getElementById(id).src=images[indexes[id]];
+    document.getElementById("count"+id.slice(-1)).innerText=(indexes[id]+1)+" / "+images.length;
 }
-function toggleDescription(id, btn) {
-    const desc = document.getElementById(id);
+
+// Description toggle
+function toggleDescription(id, btn){
+    const desc=document.getElementById(id);
     desc.classList.toggle("expanded");
-    btn.textContent = desc.classList.contains("expanded") ? "Read Less" : "Read More";
-}
-function showDetails(id) {
-    document.getElementById(id).style.display = "block";
+    btn.textContent = desc.classList.contains("expanded")?"Read Less":"Read More";
 }
 
-// Images for Project 2
-const images2 = [
-    "Product_Mix_page-0004.jpg",
-    "Product_Mix_page-0001.jpg",
-    "Product_Mix_page-0002.jpg",
-    "Product_Mix_page-0003.jpg",
-    "Product_Mix_page-0005.jpg"
-];
-
-let indexes = { img2: 0 };
-
-// Next Image
-function nextImage(id, images) {
-    indexes[id] = (indexes[id] + 1) % images.length;
-    document.getElementById(id).src = images[indexes[id]];
-    updateCounter();
+// Show account details
+function showDetails(id){
+    document.getElementById(id).style.display="block";
 }
 
-// Previous Image
-function prevImage(id, images) {
-    indexes[id] = (indexes[id] - 1 + images.length) % images.length;
-    document.getElementById(id).src = images[indexes[id]];
-    updateCounter();
+// Modal
+let currentModalId="";
+function openModal(id){
+    currentModalId=id;
+    document.getElementById("imageModal").style.display="block";
+    document.getElementById("modalImg").src=document.getElementById(id).src;
+    updateModalCount();
 }
-
-// Update counter text
-function updateCounter() {
-    document.getElementById("count2").innerText = (indexes["img2"] + 1) + " / " + images2.length;
+function closeModal(){
+    document.getElementById("imageModal").style.display="none";
+}
+function nextModalImage(){
+    const imgs = window["images"+currentModalId.slice(-1)];
+    indexes[currentModalId]=(indexes[currentModalId]+1)%imgs.length;
+    document.getElementById("modalImg").src=imgs[indexes[currentModalId]];
+    document.getElementById(currentModalId).src=imgs[indexes[currentModalId]];
+    updateModalCount();
+}
+function prevModalImage(){
+    const imgs = window["images"+currentModalId.slice(-1)];
+    indexes[currentModalId]=(indexes[currentModalId]-1+imgs.length)%imgs.length;
+    document.getElementById("modalImg").src=imgs[indexes[currentModalId]];
+    document.getElementById(currentModalId).src=imgs[indexes[currentModalId]];
+    updateModalCount();
+}
+function updateModalCount(){
+    const imgs = window["images"+currentModalId.slice(-1)];
+    document.getElementById("modalCount").innerText=(indexes[currentModalId]+1)+" / "+imgs.length;
 }
 </script>
 
