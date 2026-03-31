@@ -37,20 +37,19 @@ body {
 .description-frame {
     background: #ffffff;             
     border: 2px solid #0d47a1;      
-    padding: 15px;              
+    padding: 10px 15px;              
     font-size: 16px;                 
     color: #0d47a1;                  
     line-height: 1.5;
     text-align: left;                
     border-radius: 8px;              
-    margin: 20px;
 }
 
 .description-frame h3 {
     text-align: center;              
     margin-bottom: 10px;             
     color: #ff6f00;  
-    font-size: 20px;  
+    font-size: 20px;
 }
 
 /* PROJECT GRID */
@@ -71,9 +70,6 @@ body {
     border-radius:10px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
 }
 
 .hot-offer {
@@ -91,8 +87,14 @@ body {
     gap:5px;
 }
 
+.top-section {
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
 .image-box {
-    width: 100%;
+    width:70%;
 }
 
 .image-box img {
@@ -101,31 +103,29 @@ body {
     cursor:pointer;
 }
 
-/* Collapsible detailed description */
+/* Description under project image */
+.image-description {
+    margin-top:10px;
+    font-size:14px;
+    color:#333;
+}
+
 .detailed-description {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.6;
-    max-height: 180px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+    margin-top:10px;
+    font-size:14px;
+    color:#333;
 }
 
-.detailed-description.expanded {
-    max-height: 2000px;
+.slider-controls {
+    margin-top:5px;
 }
 
-.detailed-description ul {
-    margin-left: 20px;
-}
-
-/* Price box */
 .price-box {
+    width:30%;
     background:#e8f5e9;
     padding:15px;
     border-radius:10px;
     text-align:center;
-    margin-top:10px;
 }
 
 .original-price {
@@ -248,45 +248,45 @@ body {
 <div class="container">
 <div class="grid">
 
-<!-- PROJECT 1 - Power BI Dashboard -->
+<!-- PROJECT 1 -->
 <div class="project-card">
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Power BI Dashboard</h3>
-
-    <!-- Image -->
-    <div class="image-box">
-        <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
+    <div class="top-section">
+        <div class="image-box">
+            <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
+            <div class="image-description">
+                Interactive dashboards to track KPIs, revenue, and performance metrics.
+            </div>
+            <div class="detailed-description">
+                <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
+                <ul>
+                    <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
+                    <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
+                    <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
+                    <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
+                </ul>
+                <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
+                <p><strong>What you will receive:</strong></p>
+                <ul>
+                    <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
+                    <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="price-box">
+            <div class="original-price">$100</div>
+            <div class="discounted-price">$90</div>
+            <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
+        </div>
     </div>
-
-    <!-- Collapsible Detailed Description -->
-    <div class="detailed-description" id="desc1">
-        <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
-        <ul>
-            <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
-            <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
-            <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
-            <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
-        </ul>
-        <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
-        <p><strong>What you will receive:</strong></p>
-        <ul>
-            <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
-            <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
-        </ul>
+    <div id="acc1" class="account-details">
+        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
+        <p>Contact Number: 8006574921</p>
+        <p>Branch: Chenkalady Branch</p>
+        <p>Bank: Commercial Bank</p>
+        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
     </div>
-
-    <!-- Read More Button -->
-    <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
-
-    <!-- Price Box -->
-    <div class="price-box">
-        <div class="original-price">$100</div>
-        <div class="discounted-price">$90</div>
-        <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
-    </div>
-
-    <!-- Account Details -->
-    <div id="acc1" class="account-details">Account: 1234567890</div>
 </div>
 
 <!-- PROJECT 2 -->
@@ -295,19 +295,31 @@ body {
     <h3>Financial Model</h3>
     <div class="top-section">
         <div class="image-box">
-            <img id="img2" src="p2.jpg" onclick="openModal(this.src)">
+            <img src="p2.jpg" onclick="openModal(this.src)">
             <div class="image-description">
                 Detailed financial models for forecasting, budgeting, and investment analysis.
             </div>
-            <div class="slider-controls">
-                <button onclick="prevImage('img2', images2)">⬅️</button>
-                <button onclick="nextImage('img2', images2)">➡️</button>
+            <div class="detailed-description">
+                <p>This project provides structured <strong>financial models</strong> for business planning, budgeting, and scenario analysis. Features include:</p>
+                <ul>
+                    <li>Forecasting revenues, costs, and profitability.</li>
+                    <li>Scenario modeling to evaluate different strategies.</li>
+                    <li>Investment analysis and ROI evaluation.</li>
+                </ul>
             </div>
         </div>
         <div class="price-box">
             <div class="original-price">$150</div>
             <div class="discounted-price">$120</div>
+            <button class="btn" onclick="showDetails('acc2')">CLICK HERE</button>
         </div>
+    </div>
+    <div id="acc2" class="account-details">
+        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
+        <p>Contact Number: 8006574921</p>
+        <p>Branch: Chenkalady Branch</p>
+        <p>Bank: Commercial Bank</p>
+        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
     </div>
 </div>
 
@@ -317,19 +329,26 @@ body {
     <h3>Excel Automation</h3>
     <div class="top-section">
         <div class="image-box">
-            <img id="img3" src="p3.jpg" onclick="openModal(this.src)">
+            <img src="p3.jpg" onclick="openModal(this.src)">
             <div class="image-description">
                 Automate repetitive Excel tasks and save hours of manual work.
             </div>
-            <div class="slider-controls">
-                <button onclick="prevImage('img3', images3)">⬅️</button>
-                <button onclick="nextImage('img3', images3)">➡️</button>
+            <div class="detailed-description">
+                <p>Our <strong>Excel Automation</strong> solutions streamline complex spreadsheets, reduce errors, and save time by automating repetitive tasks.</p>
             </div>
         </div>
         <div class="price-box">
             <div class="original-price">$100</div>
             <div class="discounted-price">$80</div>
+            <button class="btn" onclick="showDetails('acc3')">CLICK HERE</button>
         </div>
+    </div>
+    <div id="acc3" class="account-details">
+        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
+        <p>Contact Number: 8006574921</p>
+        <p>Branch: Chenkalady Branch</p>
+        <p>Bank: Commercial Bank</p>
+        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
     </div>
 </div>
 
@@ -339,19 +358,26 @@ body {
     <h3>Business Dashboard</h3>
     <div class="top-section">
         <div class="image-box">
-            <img id="img4" src="p4.jpg" onclick="openModal(this.src)">
+            <img src="p4.jpg" onclick="openModal(this.src)">
             <div class="image-description">
                 Visualize business metrics and improve decision making.
             </div>
-            <div class="slider-controls">
-                <button onclick="prevImage('img4', images4)">⬅️</button>
-                <button onclick="nextImage('img4', images4)">➡️</button>
+            <div class="detailed-description">
+                <p>Create professional <strong>business dashboards</strong> to track key metrics, monitor KPIs, and enhance decision-making.</p>
             </div>
         </div>
         <div class="price-box">
             <div class="original-price">$130</div>
             <div class="discounted-price">$110</div>
+            <button class="btn" onclick="showDetails('acc4')">CLICK HERE</button>
         </div>
+    </div>
+    <div id="acc4" class="account-details">
+        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
+        <p>Contact Number: 8006574921</p>
+        <p>Branch: Chenkalady Branch</p>
+        <p>Bank: Commercial Bank</p>
+        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
     </div>
 </div>
 
@@ -361,19 +387,26 @@ body {
     <h3>Data Analysis</h3>
     <div class="top-section">
         <div class="image-box">
-            <img id="img5" src="p5.jpg" onclick="openModal(this.src)">
+            <img src="p5.jpg" onclick="openModal(this.src)">
             <div class="image-description">
                 Analyze data effectively to discover insights and trends.
             </div>
-            <div class="slider-controls">
-                <button onclick="prevImage('img5', images5)">⬅️</button>
-                <button onclick="nextImage('img5', images5)">➡️</button>
+            <div class="detailed-description">
+                <p>Our <strong>Data Analysis</strong> solutions help you extract insights from data, visualize trends, and make data-driven business decisions.</p>
             </div>
         </div>
         <div class="price-box">
             <div class="original-price">$85</div>
             <div class="discounted-price">$70</div>
+            <button class="btn" onclick="showDetails('acc5')">CLICK HERE</button>
         </div>
+    </div>
+    <div id="acc5" class="account-details">
+        <p><strong>ABDUL NAZEER MOHAMMED SATHIK</strong></p>
+        <p>Contact Number: 8006574921</p>
+        <p>Branch: Chenkalady Branch</p>
+        <p>Bank: Commercial Bank</p>
+        <p><em>Note:</em> Once payment is made, kindly send the receipt to +971 56 723 1138.</p>
     </div>
 </div>
 
@@ -398,11 +431,12 @@ body {
 </div>
 
 <script>
-// Slider images for other projects
+// Image arrays (can add multiple images for slider)
 const images2 = ["p2.jpg"];
 const images3 = ["p3.jpg"];
 const images4 = ["p4.jpg"];
 const images5 = ["p5.jpg"];
+
 let indexes = {};
 
 function nextImage(id, images) {
@@ -428,13 +462,6 @@ function openModal(src) {
 
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
-}
-
-// Collapsible description toggle
-function toggleDescription(id, btn) {
-    const desc = document.getElementById(id);
-    desc.classList.toggle("expanded");
-    btn.textContent = desc.classList.contains("expanded") ? "Read Less" : "Read More";
 }
 </script>
 
