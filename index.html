@@ -189,13 +189,27 @@ body {
 .footer {
     background:#0d47a1;
     color:white;
-    padding:15px;
+    padding:12px 15px;   /* Reduced height */
     text-align:center;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+    border-top: 3px solid #ffca28;
+    line-height: 1.5;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 15px;
 }
 
 .footer a {
     color:#ffca28;
     margin:0 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 /* ================= MOBILE ================= */
@@ -210,16 +224,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .top-section {
-        flex-direction: column;
-    }
-
     .image-box, .price-box {
         width:100%;
-    }
-
-    .price-box {
-        margin-top:10px;
     }
 }
 </style>
@@ -256,7 +262,19 @@ body {
         <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc1">
-        <p>Comprehensive PVM analysis with Excel & Power BI dashboards. Track revenue, volume, price, and mix impact with clear visualizations.</p>
+        <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
+        <ul>
+            <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
+            <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
+            <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
+            <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
+        </ul>
+        <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
+        <p><strong>What you will receive:</strong></p>
+        <ul>
+            <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
+            <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
+        </ul>
     </div>
     <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
     <div class="price-box">
@@ -281,7 +299,7 @@ body {
         <img src="p2.jpg" onclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc2">
-        <p>Financial modeling for forecasting, budgeting, and scenario analysis. Includes revenue, costs, profitability, and investment evaluation.</p>
+        <p>Detailed financial models for forecasting, budgeting, and investment analysis. Designed for decision-makers to quickly interpret financial data.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc2', this)">Read More</button>
     <div class="price-box">
@@ -306,7 +324,7 @@ body {
         <img src="p3.jpg" onclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc3">
-        <p>Automate repetitive Excel tasks, save time, and reduce errors with VBA & macro-based solutions.</p>
+        <p>Automate repetitive Excel tasks and save hours of manual work. Improves efficiency and reduces errors in financial reporting.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc3', this)">Read More</button>
     <div class="price-box">
@@ -331,7 +349,7 @@ body {
         <img src="p4.jpg" onclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc4">
-        <p>Business dashboards to visualize KPIs, track metrics, and make informed decisions efficiently.</p>
+        <p>Visualize business metrics and improve decision making with clear dashboards and KPIs. Ideal for managers and executives.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc4', this)">Read More</button>
     <div class="price-box">
@@ -356,7 +374,7 @@ body {
         <img src="p5.jpg" onclick="openModal(this.src)">
     </div>
     <div class="detailed-description" id="desc5">
-        <p>Data analysis services to uncover insights, identify trends, and make data-driven business decisions.</p>
+        <p>Analyze data effectively to discover insights and trends. Designed to improve business intelligence and reporting accuracy.</p>
     </div>
     <button class="btn" onclick="toggleDescription('desc5', this)">Read More</button>
     <div class="price-box">
@@ -394,23 +412,20 @@ body {
 </div>
 
 <script>
-function showDetails(id) {
-    document.getElementById(id).style.display = "block";
-}
-
 function openModal(src) {
     document.getElementById("imageModal").style.display = "block";
     document.getElementById("modalImg").src = src;
 }
-
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
 }
-
 function toggleDescription(id, btn) {
     const desc = document.getElementById(id);
     desc.classList.toggle("expanded");
     btn.textContent = desc.classList.contains("expanded") ? "Read Less" : "Read More";
+}
+function showDetails(id) {
+    document.getElementById(id).style.display = "block";
 }
 </script>
 
