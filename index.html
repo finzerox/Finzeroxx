@@ -16,7 +16,7 @@ body {
 .header {
     display:flex;
     align-items:center;
-    justify-content:flex-start; /* Align left */
+    justify-content:flex-start;
     gap:15px;
     background:#0d47a1;
     color:white;
@@ -34,23 +34,23 @@ body {
 }
 
 /* DESCRIPTION FRAME */
-/* DESCRIPTION FRAME - professional look, compact */
 .description-frame {
     background: #ffffff;             
     border: 2px solid #0d47a1;      
-    padding: 10px 15px;              
+    padding: 15px;              
     font-size: 16px;                 
     color: #0d47a1;                  
     line-height: 1.5;
     text-align: left;                
     border-radius: 8px;              
+    margin: 20px;
 }
 
 .description-frame h3 {
     text-align: center;              
     margin-bottom: 10px;             
-    color: #ff6f00;  /* new color for title - orange/gold */
-    font-size: 20px;  /* slightly bigger for emphasis */
+    color: #ff6f00;  
+    font-size: 20px;  
 }
 
 /* PROJECT GRID */
@@ -71,6 +71,9 @@ body {
     border-radius:10px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .hot-offer {
@@ -88,14 +91,8 @@ body {
     gap:5px;
 }
 
-.top-section {
-    display:flex;
-    gap:15px;
-    align-items:flex-start;
-}
-
 .image-box {
-    width:70%;
+    width: 100%;
 }
 
 .image-box img {
@@ -104,23 +101,31 @@ body {
     cursor:pointer;
 }
 
-/* Description under project image */
-.image-description {
-    margin-top:10px;
-    font-size:14px;
-    color:#333;
+/* Collapsible detailed description */
+.detailed-description {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    max-height: 180px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
 
-.slider-controls {
-    margin-top:5px;
+.detailed-description.expanded {
+    max-height: 2000px;
 }
 
+.detailed-description ul {
+    margin-left: 20px;
+}
+
+/* Price box */
 .price-box {
-    width:30%;
     background:#e8f5e9;
     padding:15px;
     border-radius:10px;
     text-align:center;
+    margin-top:10px;
 }
 
 .original-price {
@@ -247,38 +252,44 @@ body {
 <div class="project-card">
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Power BI Dashboard</h3>
-    <div class="top-section">
-        <div class="image-box">
-            <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
-            <div class="image-description">
-                Interactive dashboards to track KPIs, revenue, and performance metrics.
-            </div>
-            <!-- Add detailed project description here -->
-            <div class="detailed-description">
-                <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
-                <ul>
-                    <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
-                    <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
-                    <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
-                    <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
-                </ul>
-                <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
-                <p><strong>What you will receive:</strong></p>
-                <ul>
-                    <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
-                    <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="price-box">
-            <div class="original-price">$100</div>
-            <div class="discounted-price">$90</div>
-            <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
-        </div>
+
+    <!-- Image -->
+    <div class="image-box">
+        <img src="PVM_page-0001.jpg" onclick="openModal(this.src)">
     </div>
+
+    <!-- Collapsible Detailed Description -->
+    <div class="detailed-description" id="desc1">
+        <p>This project provides a comprehensive <strong>Price–Volume–Mix (PVM) analysis</strong> using sample data to evaluate business performance across products and periods. The report is structured to give clear insights into revenue trends and the factors driving them:</p>
+        <ul>
+            <li><strong>Understand Overall Revenue Performance</strong> – Get a snapshot of total revenue and its growth patterns.</li>
+            <li><strong>Compare Current Period vs. Previous Period</strong> – Measure performance changes over time to identify trends.</li>
+            <li><strong>Identify Variance Drivers</strong> – Determine whether revenue changes are driven by Price, Volume, or Product Mix.</li>
+            <li><strong>Analyze Product-wise Performance</strong> – Dive deep into individual product categories to pinpoint areas of strength and opportunities for improvement.</li>
+        </ul>
+        <p>This analysis equips decision-makers with actionable insights to optimize pricing strategies, inventory management, and product focus for maximum profitability.</p>
+        <p><strong>What you will receive:</strong></p>
+        <ul>
+            <li>Excel Dataset – Ready-to-use data for analysis and modeling.</li>
+            <li>PBIX File – Fully built Power BI report with interactive dashboards and visualizations.</li>
+        </ul>
+    </div>
+
+    <!-- Read More Button -->
+    <button class="btn" onclick="toggleDescription('desc1', this)">Read More</button>
+
+    <!-- Price Box -->
+    <div class="price-box">
+        <div class="original-price">$100</div>
+        <div class="discounted-price">$90</div>
+        <button class="btn" onclick="showDetails('acc1')">CLICK HERE</button>
+    </div>
+
+    <!-- Account Details -->
     <div id="acc1" class="account-details">Account: 1234567890</div>
 </div>
-<!-- PROJECT 2 - Multiple Images Possible -->
+
+<!-- PROJECT 2 -->
 <div class="project-card">
     <div class="hot-offer">🔥 Hot Offer!</div>
     <h3>Financial Model</h3>
@@ -387,12 +398,11 @@ body {
 </div>
 
 <script>
-// Single image arrays for projects with sliders
-const images2 = ["p2.jpg"]; // Add more images if needed
+// Slider images for other projects
+const images2 = ["p2.jpg"];
 const images3 = ["p3.jpg"];
 const images4 = ["p4.jpg"];
 const images5 = ["p5.jpg"];
-
 let indexes = {};
 
 function nextImage(id, images) {
@@ -418,6 +428,13 @@ function openModal(src) {
 
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
+}
+
+// Collapsible description toggle
+function toggleDescription(id, btn) {
+    const desc = document.getElementById(id);
+    desc.classList.toggle("expanded");
+    btn.textContent = desc.classList.contains("expanded") ? "Read Less" : "Read More";
 }
 </script>
 
